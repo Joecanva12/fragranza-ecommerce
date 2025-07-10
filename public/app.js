@@ -1,144 +1,99 @@
+// === app.js ===
+
 const products = [
-  {
-    id: 1,
-    name: "Zeest",
-    price: 1499,
-    description: "A bold, captivating fragrance that defines confidence.",
-    image: "https://edenrobe.com/cdn/shop/files/forbidden.jpg?v=1748587031?text=Zeest"
-  },
-  {
-    id: 2,
-    name: "Elle Suave",
-    price: 1399,
-    description: "Soft, floral essence made for elegance and grace.",
-    image: "https://edenrobe.com/cdn/shop/files/forbidden.jpg?v=1748587031?text=Elle+Suave"
-  },
-  {
-    id: 3,
-    name: "Dublin",
-    price: 1599,
-    description: "A fresh, powerful scent that lasts all day.",
-    image: "https://edenrobe.com/cdn/shop/files/forbidden.jpg?v=1748587031?text=Dublin"
-  },
-  {
-    id: 4,
-    name: "Enchantment",
-    price: 1499,
-    description: "Charming and sweet, ideal for memorable moments.",
-    image: "https://edenrobe.com/cdn/shop/files/forbidden.jpg?v=1748587031?text=Enchantment"
-  }
+  { id: 1, name: "Zeest", price: 1499, desc: "Bold and captivating scent.", image: "images/zeest.jpg" },
+  { id: 2, name: "Elle Suave", price: 1399, desc: "Elegant feminine fragrance.", image: "images/elle.jpg" },
+  { id: 3, name: "Enchantment", price: 1599, desc: "Mystical and floral.", image: "images/enchantment.jpg" },
+  { id: 4, name: "Dublin", price: 1499, desc: "Fresh and green masculine scent.", image: "images/dublin.jpg" },
+  { id: 5, name: "Celestial", price: 1699, desc: "Heavenly blend for men.", image: "images/celestial.jpg" },
+  { id: 6, name: "Immense", price: 1799, desc: "Powerful masculine impression.", image: "images/immense.jpg" },
+  { id: 7, name: "Afternoon Swim", price: 1599, desc: "Refreshing aquatic vibe.", image: "images/swim.jpg" },
+  { id: 8, name: "Bombshell", price: 1399, desc: "Alluring and confident.", image: "images/bombshell.jpg" }
 ];
 
-const cart = [];
+let cart = [];
+let currentProduct = null;
 
-const productGrid = document.getElementById("productGrid");
-const cartItems = document.getElementById("cartItems");
-const cartCount = document.getElementById("cart-count");
-const modal = document.getElementById("productModal");
-const modalImage = document.getElementById("modalImage");
-const modalTitle = document.getElementById("modalTitle");
-const modalDesc = document.getElementById("modalDesc");
-const modalPrice = document.getElementById("modalPrice");
-
-let selectedProduct = null;
-
-// Render products
+const grid = document.getElementById("productGrid");
 products.forEach(product => {
   const card = document.createElement("div");
   card.className = "product-card";
   card.innerHTML = `
-    <img src="${product.image}" alt="${product.name}">
-    <h3>${product.name}</h3>
+    <img src="${product.image}" alt="${product.name}" />
+    <h4>${product.name}</h4>
     <p>Rs ${product.price}</p>
   `;
   card.onclick = () => openModal(product);
-  productGrid.appendChild(card);
+  grid.appendChild(card);
 });
 
-// Modal handlers
 function openModal(product) {
-  selectedProduct = product;
-  modalImage.src = product.image;
-  modalTitle.textContent = product.name;
-  modalDesc.textContent = product.description;
-  modalPrice.textContent = product.price;
-  modal.style.display = "block";
+  currentProduct = product;
+  document.getElementById("modalImage").src = product.image;
+  document.getElementById("modalTitle").innerText = product.name;
+  document.getElementById("modalDesc").innerText = product.desc;
+  document.getElementById("modalPrice").innerText = product.price;
+  document.getElementById("productModal").style.display = "block";
 }
 
 function closeModal() {
-  modal.style.display = "none";
-  selectedProduct = null;
+  document.getElementById("productModal").style.display = "none";
 }
 
 function addToCartFromModal() {
-  if (selectedProduct) {
-    const found = cart.find(item => item.id === selectedProduct.id);
-    if (found) {
-      found.qty++;
-    } else {
-      cart.push({ ...selectedProduct, qty: 1 });
-    }
-    closeModal();
-    updateCartUI();
-    toggleCart(true);
-  }
+  const item = cart.find(p => p.id === currentProduct.id);
+  if (item) item.qty++;
+  else cart.push({ ...currentProduct, qty: 1 });
+  updateCart();
+  closeModal();
 }
 
-// Cart Sidebar
-function toggleCart(forceOpen = null) {
-  const cartSidebar = document.getElementById("cartSidebar");
-  if (forceOpen === true) {
-    cartSidebar.classList.add("active");
-  } else if (forceOpen === false) {
-    cartSidebar.classList.remove("active");
-  } else {
-    cartSidebar.classList.toggle("active");
-  }
-}
-
-// Render Cart
-function updateCartUI() {
-  cartItems.innerHTML = "";
+function updateCart() {
+  const container = document.getElementById("cartItems");
+  const count = document.getElementById("cart-count");
+  container.innerHTML = "";
   let total = 0;
   cart.forEach(item => {
     const div = document.createElement("div");
-    div.innerHTML = `${item.name} x${item.qty} – Rs ${item.price * item.qty}`;
-    cartItems.appendChild(div);
-    total += item.price * item.qty;
+    div.className = "cart-item";
+    div.innerHTML = `${item.name} x${item.qty} - Rs ${item.qty * item.price}`;
+    container.appendChild(div);
+    total += item.qty * item.price;
   });
+  count.innerText = cart.length;
+  const totalDiv = document.createElement("div");
+  totalDiv.innerHTML = `<strong>Total: Rs ${total}</strong>`;
+  container.appendChild(totalDiv);
+}
 
-  if (cart.length === 0) {
-    cartItems.innerHTML = "<p>Your cart is empty.</p>";
-  } else {
-    const shipping = total >= 1999 ? 0 : 200;
-    const totalDiv = document.createElement("div");
-    totalDiv.innerHTML = `<strong>Subtotal: Rs ${total}<br>Shipping: Rs ${shipping}<br>Total: Rs ${total + shipping}</strong>`;
-    cartItems.appendChild(document.createElement("hr"));
-    cartItems.appendChild(totalDiv);
-  }
-
-  cartCount.textContent = cart.reduce((sum, i) => sum + i.qty, 0);
+function toggleCart() {
+  const cartSidebar = document.getElementById("cartSidebar");
+  cartSidebar.style.display = cartSidebar.style.display === "block" ? "none" : "block";
 }
 
 function goToCheckout() {
-  toggleCart(false);
-  window.location.hash = "#checkout";
+  toggleCart();
+  document.getElementById("checkout").scrollIntoView({ behavior: "smooth" });
 }
 
-// Checkout form
-document.getElementById("checkoutForm").addEventListener("submit", async function(e) {
+// === Checkout Form Submission ===
+document.getElementById("checkoutForm").addEventListener("submit", async (e) => {
   e.preventDefault();
+
   const form = e.target;
   const name = form.name.value;
   const phone = form.phone.value;
+  const email = form.email.value;
   const address = form.address.value;
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   const order = {
     name,
     phone,
+    email,
     address,
     items: cart,
-    total: cart.reduce((sum, i) => sum + i.qty * i.price, 0),
+    total
   };
 
   const res = await fetch("/order", {
@@ -147,23 +102,42 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
     body: JSON.stringify(order)
   });
 
-  if (res.ok) {
-    const invoice = await res.json();
-    document.getElementById("checkout").style.display = "none";
-    const invoiceEl = document.getElementById("invoiceDetails");
-    invoiceEl.innerHTML = `
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
-      <p><strong>Address:</strong> ${address}</p>
-      <hr/>
-      ${cart.map(item => `<p>${item.name} x${item.qty} = Rs ${item.qty * item.price}</p>`).join("")}
-      <hr/>
-      <p><strong>Total: Rs ${order.total >= 1999 ? order.total : order.total + 200}</strong></p>
-    `;
-    document.getElementById("invoice").style.display = "block";
-    cart.length = 0;
-    updateCartUI();
+  const data = await res.json();
+
+  if (data.success) {
+    showInvoice({ ...order, orderId: data.orderId });
+    cart = [];
+    updateCart();
   } else {
-    alert("Order failed.");
+    alert("Order failed. Please try again.");
   }
 });
+
+// === Invoice Show/Hide ===
+function showInvoice(order) {
+  const invoice = document.getElementById("invoice");
+  const form = document.getElementById("checkoutForm");
+
+  document.getElementById("invoiceDetails").innerHTML = `
+    <p>Thank you, <strong>${order.name}</strong>! Your order has been placed.</p>
+    <p>Invoice ID: ${order.orderId}</p>
+    <p>We’ve sent a confirmation email to: <strong>${order.email}</strong></p>
+  `;
+
+  invoice.style.display = "block";
+  form.reset();
+  form.style.display = "none";
+
+  setTimeout(() => {
+    invoice.style.opacity = 1;
+    invoice.style.transition = "opacity 1s ease";
+  }, 100);
+
+  setTimeout(() => {
+    invoice.style.opacity = 0;
+    setTimeout(() => {
+      invoice.style.display = "none";
+      form.style.display = "block";
+    }, 1000);
+  }, 10000);
+}
