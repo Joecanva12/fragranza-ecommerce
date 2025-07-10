@@ -36,7 +36,7 @@ header.navbar nav a {
 }
 
 .hero {
-  background: url('https://images.unsplash.com/photo-1611080626919-7d53c104e043?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+  background: url('https://images.pexels.com/photos/32190328/pexels-photo-32190328.jpeg?_gl=1*1brwlf9*_ga*MjA5NjAwOTgwMy4xNzUyMTI2NDc5*_ga_8JE65Q40S6*czE3NTIxMjY0NzkkbzEkZzEkdDE3NTIxMjgwMzUkajM4JGwwJGgw?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
   height: 80vh;
   display: flex;
   flex-direction: column;
