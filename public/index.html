@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fragranza.pk – Premium Perfumes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
+      <a href="#checkout">Checkout</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Fragranza.pk</h1>
+    <p>Explore our bestsellers and exclusive perfume collection</p>
+  </section>
+
+  <section class="products" id="shop">
+    <h2>Shop Perfumes</h2>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <section class="cart" id="cart">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+  </section>
+
+  <section class="checkout" id="checkout">
+    <h2>Checkout</h2>
+    <form id="checkoutForm">
+      <label>Name:<br><input type="text" name="name" required></label><br><br>
+      <label>Address:<br><textarea name="address" required></textarea></label><br><br>
+      <label>Phone Number:<br><input type="tel" name="phone" required></label><br><br>
+      <button type="submit" class="btn">Place Order</button>
+    </form>
+  </section>
+
+  <section class="invoice" id="invoice" style="display:none">
+    <h2>Invoice</h2>
+    <div id="invoiceDetails"></div>
+  </section>
+
+  <footer>
+    <p class="footer-text">© 2025 Fragranza.pk – Follow us on Instagram @fdot_fragrances and Facebook @fragranzadotpk</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
