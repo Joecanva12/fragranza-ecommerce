@@ -12,10 +12,14 @@
     <div class="logo">Fragranza.pk</div>
     <nav>
       <a href="#shop">Shop</a>
-      <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
+      <a href="#cart" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</a>
       <a href="#checkout">Checkout</a>
     </nav>
   </header>
+
+  <div class="announcement">
+    🌟 Free delivery on orders above Rs 1999! Follow us @fdot_fragrances
+  </div>
 
   <section class="hero">
     <h1>Elevate Your Scent</h1>
@@ -28,11 +32,27 @@
     <div id="productGrid" class="product-grid"></div>
   </section>
 
-  <section id="cart" class="cart-section">
-    <h2>Your Cart</h2>
-    <div id="cartItems"></div>
-  </section>
+  <!-- Product Detail Modal -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Perfume" />
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <p><strong>Rs <span id="modalPrice"></span></strong></p>
+      <button class="btn" onclick="addToCartFromModal()">Add to Cart</button>
+    </div>
+  </div>
 
+  <!-- Cart Sidebar -->
+  <div id="cartSidebar" class="cart-sidebar">
+    <h3>Your Cart</h3>
+    <div id="cartItems"></div>
+    <button class="btn" onclick="goToCheckout()">Checkout</button>
+    <span class="close" onclick="toggleCart()">&times;</span>
+  </div>
+
+  <!-- Checkout Section -->
   <section id="checkout" class="checkout-section">
     <h2>Checkout</h2>
     <form id="checkoutForm">
@@ -43,6 +63,7 @@
     </form>
   </section>
 
+  <!-- Invoice Section -->
   <section id="invoice" style="display:none" class="invoice-section">
     <h2>Invoice</h2>
     <div id="invoiceDetails"></div>
@@ -52,18 +73,7 @@
     <p>© 2025 Fragranza.pk | Follow us: <strong>@fdot_fragrances</strong></p>
   </footer>
 
+  <!-- JS must be loaded at the end -->
   <script src="app.js"></script>
-
-<div id="productModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img id="modalImage" src="" alt="Perfume" />
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-    <p><strong>Rs <span id="modalPrice"></span></strong></p>
-    <button class="btn" onclick="addToCartFromModal()">Add to Cart</button>
-  </div>
-</div>
-  
 </body>
 </html>
