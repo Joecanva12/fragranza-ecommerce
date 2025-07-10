@@ -4,28 +4,28 @@ const products = [
     name: "Zeest",
     price: 1499,
     description: "A bold, captivating fragrance that defines confidence.",
-    image: "https://via.placeholder.com/400x500?text=Zeest"
+    image: "https://edenrobe.com/cdn/shop/files/forbidden.jpg?v=1748587031?text=Zeest"
   },
   {
     id: 2,
     name: "Elle Suave",
     price: 1399,
     description: "Soft, floral essence made for elegance and grace.",
-    image: "https://via.placeholder.com/400x500?text=Elle+Suave"
+    image: "https://edenrobe.com/cdn/shop/files/forbidden.jpg?v=1748587031?text=Elle+Suave"
   },
   {
     id: 3,
     name: "Dublin",
     price: 1599,
     description: "A fresh, powerful scent that lasts all day.",
-    image: "https://via.placeholder.com/400x500?text=Dublin"
+    image: "https://edenrobe.com/cdn/shop/files/forbidden.jpg?v=1748587031?text=Dublin"
   },
   {
     id: 4,
     name: "Enchantment",
     price: 1499,
     description: "Charming and sweet, ideal for memorable moments.",
-    image: "https://via.placeholder.com/400x500?text=Enchantment"
+    image: "https://edenrobe.com/cdn/shop/files/forbidden.jpg?v=1748587031?text=Enchantment"
   }
 ];
 
