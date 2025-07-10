@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fragranza.pk – Premium Perfumes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fragranza.pk – Luxury Perfumes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
+  <header class="navbar">
+    <div class="logo">Fragranza.pk</div>
     <nav>
-      <a href="#">Home</a>
       <a href="#shop">Shop</a>
       <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
       <a href="#checkout">Checkout</a>
@@ -18,39 +18,40 @@
   </header>
 
   <section class="hero">
-    <h1>Welcome to Fragranza.pk</h1>
-    <p>Explore our bestsellers and exclusive perfume collection</p>
+    <h1>Elevate Your Scent</h1>
+    <p>Discover bold, luxurious impressions made for you.</p>
+    <a href="#shop" class="btn">Explore Collection</a>
   </section>
 
-  <section class="products" id="shop">
-    <h2>Shop Perfumes</h2>
-    <div class="product-grid" id="productGrid"></div>
+  <section id="shop" class="shop-section">
+    <h2>Our Bestsellers</h2>
+    <div id="productGrid" class="product-grid"></div>
   </section>
 
-  <section class="cart" id="cart">
+  <section id="cart" class="cart-section">
     <h2>Your Cart</h2>
     <div id="cartItems"></div>
   </section>
 
-  <section class="checkout" id="checkout">
+  <section id="checkout" class="checkout-section">
     <h2>Checkout</h2>
     <form id="checkoutForm">
-      <label>Name:<br><input type="text" name="name" required></label><br><br>
-      <label>Address:<br><textarea name="address" required></textarea></label><br><br>
-      <label>Phone Number:<br><input type="tel" name="phone" required></label><br><br>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <textarea name="address" placeholder="Shipping Address" required></textarea>
       <button type="submit" class="btn">Place Order</button>
     </form>
   </section>
 
-  <section class="invoice" id="invoice" style="display:none">
+  <section id="invoice" style="display:none" class="invoice-section">
     <h2>Invoice</h2>
     <div id="invoiceDetails"></div>
   </section>
 
   <footer>
-    <p class="footer-text">© 2025 Fragranza.pk – Follow us on Instagram @fdot_fragrances and Facebook @fragranzadotpk</p>
+    <p>© 2025 Fragranza.pk | Follow us: <strong>@fdot_fragrances</strong></p>
   </footer>
 
-  <script src="/app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
