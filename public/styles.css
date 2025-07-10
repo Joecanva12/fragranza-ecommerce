@@ -27,6 +27,14 @@ header.navbar nav a {
   font-size: 1.5rem;
 }
 
+.announcement {
+  background: #b88c57;
+  color: #fff;
+  text-align: center;
+  padding: 0.6rem;
+  font-size: 0.95rem;
+}
+
 .hero {
   background: url('https://images.unsplash.com/photo-1611080626919-7d53c104e043?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
   height: 80vh;
@@ -61,7 +69,7 @@ header.navbar nav a {
   cursor: pointer;
 }
 
-.shop-section, .cart-section, .checkout-section, .invoice-section {
+.shop-section, .checkout-section, .invoice-section {
   max-width: 1200px;
   margin: 3rem auto;
   padding: 0 2rem;
@@ -89,6 +97,7 @@ header.navbar nav a {
   text-align: center;
   padding: 1rem;
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -107,10 +116,6 @@ header.navbar nav a {
   margin: 1rem 0 0.5rem;
 }
 
-.product-card p {
-  margin-bottom: 1rem;
-}
-
 input, textarea {
   width: 100%;
   padding: 0.8rem;
@@ -118,6 +123,71 @@ input, textarea {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-family: 'Inter', sans-serif;
+}
+
+/* Modal Popup */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.modal-content h3 {
+  font-family: 'Playfair Display', serif;
+  margin: 1rem 0;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  padding: 2rem 1.5rem;
+  z-index: 1000;
+  transition: right 0.3s ease-in-out;
+}
+
+.cart-sidebar.active {
+  right: 0;
+}
+
+.cart-sidebar .close {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 footer {
