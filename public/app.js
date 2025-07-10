@@ -1,14 +1,14 @@
 // === app.js ===
 
 const products = [
-  { id: 1, name: "Zeest", price: 1499, desc: "Bold and captivating scent.", image: "images/zeest.jpg" },
-  { id: 2, name: "Elle Suave", price: 1399, desc: "Elegant feminine fragrance.", image: "images/elle.jpg" },
-  { id: 3, name: "Enchantment", price: 1599, desc: "Mystical and floral.", image: "images/enchantment.jpg" },
-  { id: 4, name: "Dublin", price: 1499, desc: "Fresh and green masculine scent.", image: "images/dublin.jpg" },
-  { id: 5, name: "Celestial", price: 1699, desc: "Heavenly blend for men.", image: "images/celestial.jpg" },
-  { id: 6, name: "Immense", price: 1799, desc: "Powerful masculine impression.", image: "images/immense.jpg" },
-  { id: 7, name: "Afternoon Swim", price: 1599, desc: "Refreshing aquatic vibe.", image: "images/swim.jpg" },
-  { id: 8, name: "Bombshell", price: 1399, desc: "Alluring and confident.", image: "images/bombshell.jpg" }
+  { id: 1, name: "Zeest", price: 1499, desc: "Bold and captivating scent.", image: "https://fragranza.pk/wp-content/uploads/2022/12/Fragranza-Instagram-Facebook-Post-4-768x768.jpg" },
+  { id: 2, name: "Elle Suave", price: 1399, desc: "Elegant feminine fragrance.", image: "https://fragranza.pk/wp-content/uploads/2022/12/Fragranza-Instagram-Facebook-Post-4-768x768.jpg" },
+  { id: 3, name: "Enchantment", price: 1599, desc: "Mystical and floral.", image: "https://fragranza.pk/wp-content/uploads/2022/12/Fragranza-Instagram-Facebook-Post-4-768x768.jpg" },
+  { id: 4, name: "Dublin", price: 1499, desc: "Fresh and green masculine scent.", image: "https://fragranza.pk/wp-content/uploads/2022/12/Fragranza-Instagram-Facebook-Post-4-768x768.jpg" },
+  { id: 5, name: "Celestial", price: 1699, desc: "Heavenly blend for men.", image: "https://fragranza.pk/wp-content/uploads/2022/12/Fragranza-Instagram-Facebook-Post-4-768x768.jpg" },
+  { id: 6, name: "Immense", price: 1799, desc: "Powerful masculine impression.", image: "https://fragranza.pk/wp-content/uploads/2022/12/Fragranza-Instagram-Facebook-Post-4-768x768.jpg" },
+  { id: 7, name: "Afternoon Swim", price: 1599, desc: "Refreshing aquatic vibe.", image: "https://fragranza.pk/wp-content/uploads/2022/12/Fragranza-Instagram-Facebook-Post-4-768x768.jpg" },
+  { id: 8, name: "Bombshell", price: 1399, desc: "Alluring and confident.", image: "https://fragranza.pk/wp-content/uploads/2022/12/Fragranza-Instagram-Facebook-Post-4-768x768.jpg" }
 ];
 
 let cart = [];
