@@ -53,5 +53,17 @@
   </footer>
 
   <script src="app.js"></script>
+
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Perfume" />
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <p><strong>Rs <span id="modalPrice"></span></strong></p>
+    <button class="btn" onclick="addToCartFromModal()">Add to Cart</button>
+  </div>
+</div>
+  
 </body>
 </html>
